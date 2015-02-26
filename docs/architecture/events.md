@@ -24,7 +24,14 @@ When event is dispatched, it is handled by handlers on order how they came into 
 Event
 =====
 
-All events have to derive 
+All events have to derive from basic class Event. This class contains some common information about instance:
+
+* sender - instance who created event
+* propagate - switch if event should be propagated
+
+When propagate switch is set to false, propagation of event to handlers is stopped. 
 
 Handler classes
 ===============
+
+Base handler classes are template with argument defining type of event to handle. These classes are pure virtual and have role as interfaces. Interfaces are defined in dispatcher class concretization and direvied by real handlers, implementing abstract handling method.
