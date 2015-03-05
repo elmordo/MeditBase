@@ -31,10 +31,19 @@ public:
      */
     typedef E Event;
 
-    typedef EventHandler<E>  Handler;
+    /**
+     * event handler type
+     */
+    typedef EventHandler<E> Handler;
 
+    /**
+     * handler pointer
+     */
     typedef Handler* HandlerPrt;
 
+    /**
+     * list of handler pointers
+     */
     typedef list<HandlerPrt> HandlerList;
 
 protected:
@@ -49,6 +58,11 @@ protected:
      */
     EventList eventQueue;
 
+    /**
+     * list of registered handlers
+     */
+    HandlerList handlers;
+
 public:
 
     AbstractDispatcher()
@@ -59,7 +73,33 @@ public:
     {
     }
 
-    virtual void dispatchEvent(Event e) = 0;
+    /**
+     * add handler into instance
+     * @param handler pointer on handler instance to add
+     */
+    virtual void addHandler(HandlerPrt hander) = 0;
+
+    /**
+     * dispatch event
+     * @param e event to dispatch
+     */
+    virtual void dispatchEvent(Event& e) = 0;
+
+    /**
+     * get all handlers in list
+     */
+    virtual HandlerList getHandlers() const = 0;
+
+    /**
+     * remove handler from instance
+     * @param handler pointer on handler to remove
+     */
+    virtual void removeHandler(HandlerPrt handler) = 0;
+
+    /**
+     * remove all handlers from list
+     */
+    virtual void removeAllHandlers() = 0;
 };
 
 } /* namespace Event */
