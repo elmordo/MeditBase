@@ -20,7 +20,7 @@ class EventHandler
 {
 public:
 
-    typedef E Event;
+    typedef int Event;
 
     EventHandler()
     {
@@ -30,7 +30,7 @@ public:
     {
     }
 
-    virtual void handle(Event e) = 0;
+    virtual void handle(E* e) = 0;
 };
 
 } /* namespace Event */

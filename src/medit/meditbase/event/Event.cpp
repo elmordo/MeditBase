@@ -18,7 +18,7 @@ Event::Event()
 {
     sender = 0x0;
     propagate = true;
-
+    autoDestroy = true;
 }
 
 Event::Event(void* sender) : Event()
@@ -30,6 +30,7 @@ Event::Event(const Event& other)
 {
     sender = other.sender;
     propagate = other.propagate;
+    autoDestroy = other.autoDestroy;
 }
 
 Event::~Event()

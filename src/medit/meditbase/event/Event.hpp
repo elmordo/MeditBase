@@ -19,6 +19,11 @@ class Event
 {
 
     /**
+     * auto destroy of event after propagation
+     */
+    bool autoDestroy;
+
+    /**
      * set false when propagation should stop
      */
     bool propagate;
@@ -51,6 +56,23 @@ public:
      * destroy instance
      */
     virtual ~Event();
+
+    /**
+     * return auto destroy value
+     */
+    inline bool getAutoDestroy() const
+    {
+        return autoDestroy;
+    }
+
+    /**
+     * set new auto destroy value
+     * @param val new value for switch
+     */
+    inline void setAutoDestroy(bool val)
+    {
+        autoDestroy = val;
+    }
 
     /**
      * return propagate status
