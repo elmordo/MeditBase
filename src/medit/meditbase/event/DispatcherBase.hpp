@@ -71,6 +71,13 @@ public:
 
     virtual ~AbstractDispatcher()
     {
+        // destroy all handlers
+        for (
+                HandlerList::iterator pos = handlers.begin();
+                pos != handlers.end();
+                ++pos
+        )
+            delete *pos;
     }
 
     /**
