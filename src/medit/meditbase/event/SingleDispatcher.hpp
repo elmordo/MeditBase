@@ -27,12 +27,18 @@ class SingleDispatcher: public AbstractDispatcher<E>
     
     void propagateEvent(E *event)
     {
-        typename AbstractDispatcher<E>::HandlerList::iterator pos = this->handlers.begin(),
-                end = this->handlers.end();
-        
+        // copy set of handlers
+        typename AbstractDispatcher<E>::HandlerList handlersCopy = this->handlers;
+
+        typename AbstractDispatcher<E>::HandlerList::iterator pos = handlersCopy.begin(),
+                end;
+
+        end = handlersCopy.end();
+
         while (pos != end && event->getPropagate())
         {
             (*pos)->handle(event);
+            ++pos;
         }
     }
 
