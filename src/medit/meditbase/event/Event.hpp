@@ -8,6 +8,8 @@
 #ifndef MEDIT_MEDIT_BASE_EVENT_EVENT_HPP_
 #define MEDIT_MEDIT_BASE_EVENT_EVENT_HPP_
 
+#include "../base.hpp"
+
 namespace Medit
 {
 namespace MeditBase
@@ -15,7 +17,7 @@ namespace MeditBase
 namespace Event
 {
 
-class Event
+class SHARED_EXPORT Event
 {
 
     /**
