@@ -12,6 +12,7 @@
 
 #include "EventHandler.hpp"
 #include "Event.hpp"
+#include "../base.hpp"
 
 using namespace std;
 
@@ -21,6 +22,8 @@ namespace MeditBase
 {
 namespace Event
 {
+
+MEDIT_CREATE_EXCEPTION(Medit::MeditBase::BaseException, DispatcherException);
 
 template<class E>
 class AbstractDispatcher
