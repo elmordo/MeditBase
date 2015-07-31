@@ -13,6 +13,22 @@
                    displayName="Source Files"
                    projectFiles="true">
     </logicalFolder>
+    <logicalFolder name="src" displayName="src" projectFiles="true">
+      <logicalFolder name="medit" displayName="medit" projectFiles="true">
+        <logicalFolder name="meditbase" displayName="meditbase" projectFiles="true">
+          <logicalFolder name="event" displayName="event" projectFiles="true">
+            <itemPath>src/medit/meditbase/event/AbstractDispatcher.hpp</itemPath>
+            <itemPath>src/medit/meditbase/event/Event.cpp</itemPath>
+            <itemPath>src/medit/meditbase/event/Event.hpp</itemPath>
+            <itemPath>src/medit/meditbase/event/EventHandler.hpp</itemPath>
+            <itemPath>src/medit/meditbase/event/IDispatcherAware.hpp</itemPath>
+            <itemPath>src/medit/meditbase/event/SingleDispatcher.hpp</itemPath>
+            <itemPath>src/medit/meditbase/event/test.cpp</itemPath>
+          </logicalFolder>
+          <itemPath>src/medit/meditbase/base.hpp</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+    </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
                    projectFiles="false"
@@ -25,6 +41,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>src</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="2">
@@ -35,6 +54,40 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="src/medit/meditbase/base.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/AbstractDispatcher.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/Event.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/Event.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/EventHandler.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/IDispatcherAware.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/SingleDispatcher.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="2">
       <toolsSet>
@@ -56,6 +109,40 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="src/medit/meditbase/base.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/AbstractDispatcher.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/Event.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/Event.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/EventHandler.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/IDispatcherAware.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/SingleDispatcher.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/medit/meditbase/event/test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
     </conf>
   </confs>
 </configurationDescriptor>
