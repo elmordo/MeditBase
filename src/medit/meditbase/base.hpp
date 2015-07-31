@@ -24,8 +24,8 @@
 public:\
     NEW_EXCEPTION() throw() {}\
     NEW_EXCEPTION(const std::string& msg, int code=1) throw() : BASE_EXCEPTION(msg, code) {}\
-    NEW_EXCEPTION(const std::string& msg, int code, std::string file, int line, std::string fn) throw() : BASE_EXCEPTION(msg, code, file, line, fn)\
-    NEW_EXCEPTION(const BaseException& original) throw() : BASE_EXCEPTION(original)\
+    NEW_EXCEPTION(const std::string& msg, int code, std::string file, int line, std::string fn) throw() : BASE_EXCEPTION(msg, code, file, line, fn) {}\
+    NEW_EXCEPTION(const BaseException& original) throw() : BASE_EXCEPTION(original){} \
     virtual ~NEW_EXCEPTION() throw() {}\
 }
 #endif
@@ -51,7 +51,7 @@ class BaseException : public std::exception
 
     std::string file;
 
-    string msg;
+    std::string msg;
 
     int code;
 
@@ -102,7 +102,7 @@ public:
      * @brief return message
      * @return error message
      */
-    const string& getMessage() const throw();
+    const std::string& getMessage() const throw();
 
     /**
      * @brief return number of line
