@@ -13,7 +13,8 @@ DEFINES += MEDITBASE_LIBRARY
 
 SOURCES += \
     src/medit/meditbase/event/Event.cpp \
-    src/medit/meditbase/event/test.cpp
+    src/medit/meditbase/event/test.cpp \
+    src/medit/meditbase/base.cpp
 
 HEADERS += \
     src/medit/meditbase/event/AbstractDispatcher.hpp \

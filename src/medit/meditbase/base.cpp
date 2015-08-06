@@ -33,7 +33,7 @@ BaseException::BaseException(const BaseException& original) throw()
     code = original.code;
     file = original.file;
     line = original.line;
-    ln = original.ln;
+    fn = original.fn;
 }
 
 const char* BaseException::what() throw()
@@ -41,7 +41,7 @@ const char* BaseException::what() throw()
     return msg.c_str();
 }
 
-const std::string& BaseException::getMessage() throw()
+const std::string& BaseException::getMessage() const throw()
 {
     return msg;
 }
@@ -56,14 +56,18 @@ int BaseException::getLine() const throw()
     return line;
 }
 
-const string& BaseException::getFile() const throw()
+const std::string& BaseException::getFile() const throw()
 {
     return file;
 }
 
-const string& BaseException::getFn() const throw()
+const std::string& BaseException::getFn() const throw()
 {
     return fn;
+}
+
+Medit::MeditBase::BaseException::~BaseException() throw()
+{
 }
 
 }
