@@ -31,7 +31,7 @@ public:\
 #endif
 
 #ifndef MEDIT_THROW_SIMPLE
-#define MEDIT_THROW(EXCEPTION) MEDIT_THROW("",1)
+#define MEDIT_THROW_SIMPLE(EXCEPTION) MEDIT_THROW("",1)
 #endif
 
 #ifndef MEDIT_THROW
