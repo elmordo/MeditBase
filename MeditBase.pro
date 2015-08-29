@@ -22,7 +22,8 @@ HEADERS += \
     src/medit/meditbase/event/EventHandler.hpp \
     src/medit/meditbase/event/IDispatcherAware.hpp \
     src/medit/meditbase/event/SingleDispatcher.hpp \
-    src/medit/meditbase/base.hpp
+    src/medit/meditbase/base.hpp \
+    src/medit/meditbase/interface/IClonable.hpp
 
 unix {
     target.path = /usr/lib
