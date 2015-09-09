@@ -14,7 +14,8 @@ DEFINES += MEDITBASE_LIBRARY
 SOURCES += \
     src/medit/meditbase/event/Event.cpp \
     src/medit/meditbase/event/test.cpp \
-    src/medit/meditbase/base.cpp
+    src/medit/meditbase/base.cpp \
+    src/medit/meditbase/IdGenerator.cpp
 
 HEADERS += \
     src/medit/meditbase/event/AbstractDispatcher.hpp \
@@ -23,7 +24,8 @@ HEADERS += \
     src/medit/meditbase/event/IDispatcherAware.hpp \
     src/medit/meditbase/event/SingleDispatcher.hpp \
     src/medit/meditbase/base.hpp \
-    src/medit/meditbase/interface/IClonable.hpp
+    src/medit/meditbase/interface/IClonable.hpp \
+    src/medit/meditbase/IdGenerator.hpp
 
 unix {
     target.path = /usr/lib
