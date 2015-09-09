@@ -11,6 +11,8 @@ TEMPLATE = lib
 
 DEFINES += MEDITBASE_LIBRARY
 
+QMAKE_CXXFLAGS += -std=c++11
+
 SOURCES += \
     src/medit/meditbase/event/Event.cpp \
     src/medit/meditbase/event/test.cpp \
