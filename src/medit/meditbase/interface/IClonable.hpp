@@ -27,7 +27,7 @@ protected:
      * @return cloned context
      */
     template<class CURR_CLASS>
-    BASE_CLASS *cloneItem(const CURR_CLASS *context)
+    BASE_CLASS *cloneItem()
     {
         allocator<CURR_CLASS> alloc;
         CURR_CLASS *retVal = alloc.allocate(1);
