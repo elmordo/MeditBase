@@ -19,15 +19,23 @@
 #define SHARED_EXPORT
 #endif
 
-#ifndef MEDIT_CREATE_EXCEPTION
-#define MEDIT_CREATE_EXCEPTION(BASE_EXCEPTION,NEW_EXCEPTION) class NEW_EXCEPTION : public BASE_EXCEPTION {\
-public:\
-    NEW_EXCEPTION() throw() {}\
-    NEW_EXCEPTION(const std::string& msg, int code=1) throw() : BASE_EXCEPTION(msg, code) {}\
-    NEW_EXCEPTION(const std::string& msg, int code, std::string file, int line, std::string fn) throw() : BASE_EXCEPTION(msg, code, file, line, fn) {}\
-    NEW_EXCEPTION(const BaseException& original) throw() : BASE_EXCEPTION(original){} \
-    virtual ~NEW_EXCEPTION() throw() {}\
+#ifndef MEDIT_CREATE_EXCEPTION_E
+#define MEDIT_CREATE_EXCEPTION_E(BASE_EXCEPTION,NEW_EXCEPTION) class NEW_EXCEPTION : public BASE_EXCEPTION {\
+    public:\
+        NEW_EXCEPTION() throw() {}\
+        NEW_EXCEPTION(const std::string& msg, int code=1) throw() : BASE_EXCEPTION(msg, code) {}\
+        NEW_EXCEPTION(const std::string& msg, int code, std::string file, int line, std::string fn) throw() : BASE_EXCEPTION(msg, code, file, line, fn) {}\
+        NEW_EXCEPTION(const BaseException& original) throw() : BASE_EXCEPTION(original){} \
+        virtual ~NEW_EXCEPTION() throw() {}\
+    enum EXCEPTION_TYPE:int\
+    {
+
+#define MEDIT_END_EXCEPTION_E };\
 }
+#endif
+
+#ifndef MEDIT_CREATE_EXCEPTION
+#define MEDIT_CREATE_EXCEPTION(BASE_EXCEPTION,NEW_EXCEPTION) MEDIT_CREATE_EXCEPTION_E(BASE_EXCEPTION,NEW_EXCEPTION) MEDIT_END_EXCEPTION_E
 #endif
 
 #ifndef MEDIT_THROW_SIMPLE
