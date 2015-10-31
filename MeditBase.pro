@@ -17,7 +17,10 @@ SOURCES += \
     src/medit/meditbase/event/Event.cpp \
     src/medit/meditbase/event/test.cpp \
     src/medit/meditbase/base.cpp \
-    src/medit/meditbase/IdGenerator.cpp
+    src/medit/meditbase/IdGenerator.cpp \
+    src/medit/meditbase/di/ServiceLocator.cpp \
+    src/medit/meditbase/di/ServiceContainer.cpp \
+    src/medit/meditbase/di/ServiceLocatorAware.cpp
 
 HEADERS += \
     src/medit/meditbase/event/AbstractDispatcher.hpp \
@@ -27,7 +30,10 @@ HEADERS += \
     src/medit/meditbase/event/SingleDispatcher.hpp \
     src/medit/meditbase/base.hpp \
     src/medit/meditbase/interface/IClonable.hpp \
-    src/medit/meditbase/IdGenerator.hpp
+    src/medit/meditbase/IdGenerator.hpp \
+    src/medit/meditbase/di/ServiceLocator.hpp \
+    src/medit/meditbase/di/ServiceContainer.hpp \
+    src/medit/meditbase/di/ServiceLocatorAware.hpp
 
 unix {
     target.path = /usr/lib
