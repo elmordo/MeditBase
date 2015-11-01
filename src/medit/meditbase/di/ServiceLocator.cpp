@@ -11,6 +11,16 @@ ServiceLocator::ServiceLocator()
 {
 }
 
+ServiceLocator::ServiceLocator(const ServiceLocator &original)
+{
+
+}
+
+ServiceLocator::~ServiceLocator()
+{
+
+}
+
 } // namespace DI
 } // namespace MeditBase
 } // namespace Medit

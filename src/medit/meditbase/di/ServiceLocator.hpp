@@ -13,12 +13,41 @@ namespace MeditBase
 namespace DI
 {
 
-class ServiceContainer;
+class AbstractServiceContainer;
 
 class ServiceLocator
 {
 public:
+
+    /**
+     * @brief container for services
+     */
+    typedef map<size_t, AbstractServiceContainer*> ServiceMap;
+
+private:
+
+    /**
+     * @brief set of registered services
+     */
+    ServiceMap services;
+
+public:
+
+    /**
+     * @brief create empty service
+     */
     ServiceLocator();
+
+    /**
+     * @brief copytor
+     * @param original instance with original data
+     */
+    ServiceLocator(const ServiceLocator &original);
+
+    /**
+     * @brief destroy instance
+     */
+    virtual ~ServiceLocator();
 };
 
 } // namespace DI

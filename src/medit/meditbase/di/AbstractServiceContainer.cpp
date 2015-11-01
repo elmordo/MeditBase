@@ -17,8 +17,27 @@ void AbstractServiceContainer::setShared(bool value)
 {
     shared = value;
 }
+
+AbstractServiceContainer &AbstractServiceContainer::operator =(const AbstractServiceContainer &original)
+{
+    clearSharedInstance();
+    shared = original.shared;
+    setServiceLocator(original.getServiceLocator());
+}
 AbstractServiceContainer::AbstractServiceContainer()
 {
+}
+
+AbstractServiceContainer::AbstractServiceContainer(const AbstractServiceContainer &original)
+{
+    instance = 0;
+    setServiceLocator(original.getServiceLocator());
+    shared = original.shared;
+}
+
+AbstractServiceContainer::~AbstractServiceContainer()
+{
+    clearSharedInstance();
 }
 
 void AbstractServiceContainer::destroyInstance(ServiceLocatorAware *instance, size_t n)
@@ -58,8 +77,7 @@ void AbstractServiceContainer::clearSharedInstance()
 {
     if (instance)
     {
-        Allocator<ServiceLocatorAware> alloc;
-        alloc.destroyAndDeallocate(instance, 1);
+        destroyInstance(instance, 1);
         instance = 0x0;
     }
 }

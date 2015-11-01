@@ -47,6 +47,12 @@ public:
     AbstractServiceContainer(ServiceLocator *locator);
 
     /**
+     * @brief copytor
+     * @param original instance with original data
+     */
+    AbstractServiceContainer(const AbstractServiceContainer &original);
+
+    /**
      * @brief destructor
      */
     virtual ~AbstractServiceContainer();
@@ -86,6 +92,13 @@ public:
      * @param value new flag value
      */
     void setShared(bool value);
+
+    /**
+     * @brief assing original instance to current one
+     * @param original instance with original data
+     * @return reference to self
+     */
+    AbstractServiceContainer &operator =(const AbstractServiceContainer &original);
 };
 
 } // namespace DI

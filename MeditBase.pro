@@ -15,11 +15,9 @@ QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += \
     src/medit/meditbase/event/Event.cpp \
-    src/medit/meditbase/event/test.cpp \
     src/medit/meditbase/base.cpp \
     src/medit/meditbase/IdGenerator.cpp \
     src/medit/meditbase/di/ServiceLocator.cpp \
-    src/medit/meditbase/di/ServiceContainer.cpp \
     src/medit/meditbase/di/ServiceLocatorAware.cpp \
     src/medit/meditbase/di/AbstractServiceContainer.cpp
 
