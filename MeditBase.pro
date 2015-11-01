@@ -34,9 +34,23 @@ HEADERS += \
     src/medit/meditbase/di/ServiceContainer.hpp \
     src/medit/meditbase/di/ServiceLocatorAware.hpp \
     src/medit/meditbase/di/AbstractServiceContainer.hpp \
-    src/medit/meditbase/Allocator.hpp
+    src/medit/meditbase/Allocator.hpp \
+    tests/di/suite.hpp
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
+}
+
+TEST {
+    TEMPLATE=app
+
+    unix:!macx: LIBS += -L$$PWD/../build-GTFO-Desktop-Ladění/ -lGTFO
+
+    INCLUDEPATH += $$PWD/../GTFO/src
+    DEPENDPATH += $$PWD/../GTFO/src
+
+    SOURCES += tests/main.cpp
+
+    HEADERS += tests/di/TestServiceLocatorAware.hpp
 }
