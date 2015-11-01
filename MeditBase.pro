@@ -20,7 +20,8 @@ SOURCES += \
     src/medit/meditbase/IdGenerator.cpp \
     src/medit/meditbase/di/ServiceLocator.cpp \
     src/medit/meditbase/di/ServiceContainer.cpp \
-    src/medit/meditbase/di/ServiceLocatorAware.cpp
+    src/medit/meditbase/di/ServiceLocatorAware.cpp \
+    src/medit/meditbase/di/AbstractServiceContainer.cpp
 
 HEADERS += \
     src/medit/meditbase/event/AbstractDispatcher.hpp \
@@ -33,7 +34,9 @@ HEADERS += \
     src/medit/meditbase/IdGenerator.hpp \
     src/medit/meditbase/di/ServiceLocator.hpp \
     src/medit/meditbase/di/ServiceContainer.hpp \
-    src/medit/meditbase/di/ServiceLocatorAware.hpp
+    src/medit/meditbase/di/ServiceLocatorAware.hpp \
+    src/medit/meditbase/di/AbstractServiceContainer.hpp \
+    src/medit/meditbase/Allocator.hpp
 
 unix {
     target.path = /usr/lib
