@@ -17,6 +17,13 @@ void ServiceLocatorAware::setServiceLocator(ServiceLocator *value)
 {
     serviceLocator = value;
 }
+
+ServiceLocatorAware &ServiceLocatorAware::operator =(const ServiceLocatorAware &original)
+{
+    serviceLocator = original.serviceLocator;
+
+    return *this;
+}
 ServiceLocatorAware::ServiceLocatorAware()
 {
     serviceLocator = 0x0;
@@ -25,6 +32,11 @@ ServiceLocatorAware::ServiceLocatorAware()
 ServiceLocatorAware::ServiceLocatorAware(ServiceLocator *locator)
 {
     serviceLocator = locator;
+}
+
+ServiceLocatorAware::ServiceLocatorAware(const ServiceLocatorAware &original)
+{
+    serviceLocator = original.serviceLocator;
 }
 
 ServiceLocatorAware::~ServiceLocatorAware()

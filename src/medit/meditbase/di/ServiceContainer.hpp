@@ -1,6 +1,7 @@
 #ifndef MEDIT_MEDITBASE_DI_SERVICECONTAINER_HPP
 #define MEDIT_MEDITBASE_DI_SERVICECONTAINER_HPP
 
+#include "../Allocator.hpp"
 #include "AbstractServiceContainer.hpp"
 
 
@@ -63,34 +64,42 @@ public:
 #define __PF ServiceContainer<T>
 
 __TPL
-__PF::__PF()
+__PF::ServiceContainer()
 {
 }
 
 __TPL
-__PF::__PF(ServiceLocator *locator) : AbstractServiceContainer(locator)
+__PF::ServiceContainer(ServiceLocator *locator) : AbstractServiceContainer(locator)
 {
 }
 
 __TPL
-__PF::__PF(const __PF &original) : AbstractServiceContainer(original)
+__PF::ServiceContainer(const __PF &original) : AbstractServiceContainer(original)
 {
 }
 
 __TPL
-__PF::~__PF()
+__PF::~ServiceContainer()
 {
+    clearSharedInstance();
 }
 
 __TPL
 __PF &__PF::operator =(const __PF &original)
 {
-    AbstractServiceContainer::operator =(orignal);
+    AbstractServiceContainer::operator =(original);
     return *this;
 }
 
 __TPL
-__PF:: __PF::createService()
+ServiceLocatorAware *__PF::createInstance()
+{
+    Allocator<T> alloc;
+    T *service = alloc.allocateAndConstruct(1);
+    service->setServiceLocator(getServiceLocator());
+
+    return service;
+}
 
 #undef __TPL
 #undef __PF

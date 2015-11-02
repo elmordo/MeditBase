@@ -4,6 +4,7 @@
 #include <GTFO/TestSuite.hpp>
 
 #include "TestServiceLocatorAware.hpp"
+#include "TestServiceContainer.hpp"
 
 namespace Medit
 {
@@ -15,8 +16,9 @@ namespace Tests
 GTFO_TESTSUITE(DiSuite)
 
 GTFO_REGISTER_TESTCASE(TestServiceLocatorAware);
+GTFO_REGISTER_TESTCASE(TestServiceContainer);
 
-GTFO_ENDTESTSUITE;
+GTFO_ENDTESTSUITE
 
 
 }

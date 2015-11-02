@@ -33,6 +33,12 @@ public:
     ServiceLocatorAware(ServiceLocator *locator);
 
     /**
+     * @brief copytor
+     * @param original instance with original data
+     */
+    ServiceLocatorAware(const ServiceLocatorAware &original);
+
+    /**
      * @brief destructor
      */
     virtual ~ServiceLocatorAware();
@@ -48,6 +54,13 @@ public:
      * @param value locator to set
      */
     void setServiceLocator(ServiceLocator *value);
+
+    /**
+     * @brief assign operator
+     * @param original instance with original data
+     * @return reference to self
+     */
+    ServiceLocatorAware &operator =(const ServiceLocatorAware &original);
 
 };
 

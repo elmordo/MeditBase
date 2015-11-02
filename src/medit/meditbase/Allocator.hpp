@@ -92,7 +92,7 @@ template<typename... Args>
 T *Allocator<T>::allocateAndConstruct(size_t n, Args... args)
 {
     TypePtr instance = allocator<T>::allocate(n);
-    construct(instance, forward<Args>(args)...);
+    allocator<TypeName>::construct(instance, forward<Args>(args)...);
 
     return instance;
 }

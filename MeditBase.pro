@@ -35,7 +35,7 @@ HEADERS += \
     src/medit/meditbase/di/ServiceLocatorAware.hpp \
     src/medit/meditbase/di/AbstractServiceContainer.hpp \
     src/medit/meditbase/Allocator.hpp \
-    tests/di/suite.hpp
+    tests/di/TestServiceContainer.hpp
 
 unix {
     target.path = /usr/lib
@@ -52,5 +52,6 @@ TEST {
 
     SOURCES += tests/main.cpp
 
-    HEADERS += tests/di/TestServiceLocatorAware.hpp
+    HEADERS += tests/di/TestServiceLocatorAware.hpp \
+            tests/di/suite.hpp
 }

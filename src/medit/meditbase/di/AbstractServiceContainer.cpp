@@ -23,15 +23,24 @@ AbstractServiceContainer &AbstractServiceContainer::operator =(const AbstractSer
     clearSharedInstance();
     shared = original.shared;
     setServiceLocator(original.getServiceLocator());
+
+    return *this;
 }
 AbstractServiceContainer::AbstractServiceContainer()
 {
+    shared = false;
+    instance = 0x0;
 }
 
-AbstractServiceContainer::AbstractServiceContainer(const AbstractServiceContainer &original)
+AbstractServiceContainer::AbstractServiceContainer(ServiceLocator *locator) : ServiceLocatorAware(locator)
+{
+    shared = false;
+    instance = 0x0;
+}
+
+AbstractServiceContainer::AbstractServiceContainer(const AbstractServiceContainer &original) : ServiceLocatorAware(original)
 {
     instance = 0;
-    setServiceLocator(original.getServiceLocator());
     shared = original.shared;
 }
 
