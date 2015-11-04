@@ -13,11 +13,6 @@ ServiceLocator::ServiceLocator()
 {
 }
 
-ServiceLocator::ServiceLocator(const ServiceLocator &)
-{
-
-}
-
 ServiceLocator::~ServiceLocator()
 {
     // destroy all services
@@ -82,6 +77,13 @@ void ServiceLocator::unregisterService(size_t id)
     }
 }
 
+ServiceLocator::ServiceMap ServiceLocator::getRegisteredServices() const
+{
+    return services;
+}
+
 } // namespace DI
-} // namespace MeditBase
+}
+
+// namespace MeditBase
 } // namespace Medit

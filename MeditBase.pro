@@ -35,7 +35,8 @@ HEADERS += \
     src/medit/meditbase/di/ServiceLocatorAware.hpp \
     src/medit/meditbase/di/AbstractServiceContainer.hpp \
     src/medit/meditbase/Allocator.hpp \
-    tests/di/TestServiceContainer.hpp
+    tests/di/TestServiceContainer.hpp \
+    tests/di/TestServiceLocator.hpp
 
 unix {
     target.path = /usr/lib

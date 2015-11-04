@@ -48,12 +48,6 @@ public:
     ServiceLocator();
 
     /**
-     * @brief copytor
-     * @param original instance with original data
-     */
-    ServiceLocator(const ServiceLocator &original);
-
-    /**
      * @brief destroy instance
      */
     virtual ~ServiceLocator();
@@ -78,6 +72,12 @@ public:
      * @return constant pointer to container
      */
     const AbstractServiceContainer *getServiceContainer(size_t id) const;
+
+    /**
+     * @brief return all registered services
+     * @return
+     */
+    ServiceMap getRegisteredServices() const;
 
     /**
      * @brief return true if service is registered
