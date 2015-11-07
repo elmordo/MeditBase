@@ -19,7 +19,7 @@ public:
     /**
      * @brief allocator used to destroying instances
      */
-    typedef Allocator<ServiceLocatorAware> ServiceAllocator;
+    typedef MeditBase::Allocator<ServiceLocatorAware> ServiceAllocator;
 
 private:
 

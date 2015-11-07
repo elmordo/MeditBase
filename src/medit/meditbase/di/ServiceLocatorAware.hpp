@@ -1,6 +1,8 @@
 #ifndef MEDIT_MEDITBASE_DI_SERVICELOCATORAWARE_HPP
 #define MEDIT_MEDITBASE_DI_SERVICELOCATORAWARE_HPP
 
+#include "../Allocator.hpp"
+
 namespace Medit
 {
 namespace MeditBase
@@ -20,6 +22,8 @@ class ServiceLocatorAware
     ServiceLocator *serviceLocator;
 
 public:
+
+    typedef MeditBase::Allocator<ServiceLocatorAware> Allocator;
 
     /**
      * @brief create empty instance

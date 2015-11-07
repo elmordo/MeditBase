@@ -25,6 +25,8 @@ public:
      */
     typedef Service* ServicePtr;
 
+    typedef MeditBase::Allocator<ServiceContainer<T> > Allocator;
+
     /**
      * @brief create empty instance
      */
@@ -94,7 +96,7 @@ __PF &__PF::operator =(const __PF &original)
 __TPL
 ServiceLocatorAware *__PF::createInstance()
 {
-    Allocator<T> alloc;
+    MeditBase::Allocator<T> alloc;
     T *service = alloc.allocateAndConstruct(1);
     service->setServiceLocator(getServiceLocator());
 

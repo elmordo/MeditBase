@@ -80,14 +80,14 @@ public:
     /**
      * @brief get container of service
      * @param id identification number of container
-     * @return pointer to container
+     * @return pointer to container or null if container not found
      */
     AbstractServiceContainer *getServiceContainer(size_t id);
 
     /**
      * @brief get container of service
      * @param id identification number of container
-     * @return constant pointer to container
+     * @return constant pointer to container or null if container not found
      */
     const AbstractServiceContainer *getServiceContainer(size_t id) const;
 
