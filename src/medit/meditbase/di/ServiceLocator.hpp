@@ -40,12 +40,30 @@ private:
      */
     ServiceMap services;
 
+    /**
+     * @brief parent locator for hierarchy structure of locators
+     */
+    ServiceLocator *parent;
+
+    /**
+     * @brief return true if service is registered in current instance
+     * @param id identifier of service
+     * @return true if service is registered
+     */
+    bool isServiceRegistered(size_t id) const;
+
 public:
 
     /**
      * @brief create empty service
      */
     ServiceLocator();
+
+    /**
+     * @brief initialize locator with parent
+     * @param parent
+     */
+    ServiceLocator(ServiceLocator *parent);
 
     /**
      * @brief destroy instance
@@ -99,6 +117,17 @@ public:
      */
     void unregisterService(size_t id);
 
+    /**
+     * @brief return current parent service locator
+     * @return current parent
+     */
+    ServiceLocator *getParent() const;
+
+    /**
+     * @brief set new parent service locator
+     * @param value new parent
+     */
+    void setParent(ServiceLocator *value);
 };
 
 } // namespace DI

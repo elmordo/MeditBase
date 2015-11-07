@@ -11,6 +11,7 @@ namespace DI
 
 ServiceLocator::ServiceLocator()
 {
+    parent = 0x0;
 }
 
 ServiceLocator::~ServiceLocator()
@@ -24,12 +25,22 @@ ServiceLocator::~ServiceLocator()
     }
 }
 
+bool ServiceLocator::isServiceRegistered(size_t id) const
+{
+    return services.find(id) != services.end();
+}
+
 ServiceLocatorAware *ServiceLocator::get(size_t id)
 {
-    if (!hasService(id))
+    if (!isServiceRegistered(id))
     {
-        MEDIT_THROW(ServiceLocatorException, "Service was not found",
-                    ServiceLocatorException::SERVICE_NOT_FOUND);
+        if (!parent)
+        {
+            MEDIT_THROW(ServiceLocatorException, "Service was not found",
+                        ServiceLocatorException::SERVICE_NOT_FOUND);
+        }
+
+        return parent->get(id);
     }
 
     return services[id]->getInstance();
@@ -37,8 +48,13 @@ ServiceLocatorAware *ServiceLocator::get(size_t id)
 
 AbstractServiceContainer *ServiceLocator::getServiceContainer(size_t id)
 {
-    if (!hasService(id))
+    if (!isServiceRegistered(id))
     {
+        if (parent)
+        {
+            return parent->getServiceContainer(id);
+        }
+
         return 0x0;
     }
 
@@ -57,7 +73,7 @@ const AbstractServiceContainer *ServiceLocator::getServiceContainer(size_t id) c
 
 bool ServiceLocator::hasService(size_t id) const
 {
-    return services.find(id) != services.end();
+    return isServiceRegistered(id) || (parent != 0x0 && parent->hasService(id));
 }
 
 void ServiceLocator::registerService(size_t id, AbstractServiceContainer *container)
@@ -82,8 +98,24 @@ ServiceLocator::ServiceMap ServiceLocator::getRegisteredServices() const
     return services;
 }
 
+ServiceLocator *ServiceLocator::getParent() const
+{
+    return parent;
+}
+
+void ServiceLocator::setParent(ServiceLocator *value)
+{
+    parent = value;
+}
+
+ServiceLocator::ServiceLocator(ServiceLocator *parent)
+{
+    this->parent = parent;
+}
+
 } // namespace DI
 }
+
 
 // namespace MeditBase
 } // namespace Medit
