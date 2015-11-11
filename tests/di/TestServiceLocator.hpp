@@ -241,6 +241,29 @@ void testGetServiceContainer4()
     assertEqual(g, container, "Invalid container given.");
 }
 
+void testHasService1()
+{
+    ServiceLocator locator;
+
+    assertFalse(locator.hasService(1));
+}
+
+void testHasService2()
+{
+}
+
+void testHasService3()
+{
+    ServiceLocator parent;
+    ServiceLocator locator(&parent);
+
+    assertFalse(locator.hasService(1));
+}
+
+void testHasService4()
+{
+}
+
 /**
  * @brief try to get not existing service container (const version)
  */
