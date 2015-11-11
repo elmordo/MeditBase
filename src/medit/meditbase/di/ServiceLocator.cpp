@@ -63,8 +63,13 @@ AbstractServiceContainer *ServiceLocator::getServiceContainer(size_t id)
 
 const AbstractServiceContainer *ServiceLocator::getServiceContainer(size_t id) const
 {
-    if (!hasService(id))
+    if (!isServiceRegistered(id))
     {
+        if (parent)
+        {
+            return parent->getServiceContainer(id);
+        }
+
         return 0x0;
     }
 
