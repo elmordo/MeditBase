@@ -48,6 +48,11 @@ GTFO_REGISTER_TEST(testGetServiceContainerC4);
 GTFO_REGISTER_TEST(testGetRegisteredServices1);
 GTFO_REGISTER_TEST(testGetRegisteredServices2);
 
+GTFO_REGISTER_TEST(testHasService1);
+GTFO_REGISTER_TEST(testHasService2);
+GTFO_REGISTER_TEST(testHasService3);
+GTFO_REGISTER_TEST(testHasService4);
+
 GTFO_ENDTESTLIST
 
 /**
