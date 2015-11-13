@@ -53,6 +53,9 @@ GTFO_REGISTER_TEST(testHasService2);
 GTFO_REGISTER_TEST(testHasService3);
 GTFO_REGISTER_TEST(testHasService4);
 
+GTFO_REGISTER_TEST(testRegisterService);
+GTFO_REGISTER_TEST(testUnregisterService);
+
 GTFO_ENDTESTLIST
 
 /**
@@ -340,14 +343,6 @@ void testGetRegisteredServices2()
     assertEqual(services.size(), 1);
 }
 
-ServiceContainer<MockService> *createContainer()
-{
-    ServiceContainer<MockService>::Allocator alloc;
-    ServiceContainer<MockService> *retVal = alloc.allocateAndConstruct(1);
-
-    return retVal;
-}
-
 /**
  * @brief test has method on servoce locator (SL does not have)
  */
@@ -392,6 +387,43 @@ void testHasService4()
     parent.registerService(1, container);
 
     assertTrue(locator.hasService(1));
+}
+
+/**
+ * @brief try to register some services
+ */
+void testRegisterService()
+{
+    AbstractServiceContainer *container1 = createContainer();
+    AbstractServiceContainer *container2 = createContainer();
+
+    ServiceLocator locator;
+    locator.registerService(1, container1);
+    locator.registerService(2, container2);
+
+    assertTrue(locator.hasService(1));
+    assertTrue(locator.hasService(2));
+
+    assertEqual(locator.getRegisteredServices().size(), 2);
+}
+
+void testUnregisterService()
+{
+    AbstractServiceContainer *container = createContainer();
+    ServiceLocator locator;
+
+    locator.registerService(1, container);
+    locator.unregisterService(1);
+
+    assertEqual(locator.getRegisteredServices().size(), 0);
+}
+
+ServiceContainer<MockService> *createContainer()
+{
+    ServiceContainer<MockService>::Allocator alloc;
+    ServiceContainer<MockService> *retVal = alloc.allocateAndConstruct(1);
+
+    return retVal;
 }
 
 GTFO_ENDCASE
