@@ -246,29 +246,6 @@ void testGetServiceContainer4()
     assertEqual(g, container, "Invalid container given.");
 }
 
-void testHasService1()
-{
-    ServiceLocator locator;
-
-    assertFalse(locator.hasService(1));
-}
-
-void testHasService2()
-{
-}
-
-void testHasService3()
-{
-    ServiceLocator parent;
-    ServiceLocator locator(&parent);
-
-    assertFalse(locator.hasService(1));
-}
-
-void testHasService4()
-{
-}
-
 /**
  * @brief try to get not existing service container (const version)
  */
@@ -361,6 +338,60 @@ void testGetRegisteredServices2()
     ServiceLocator::ServiceMap services = locator.getRegisteredServices();
 
     assertEqual(services.size(), 1);
+}
+
+ServiceContainer<MockService> *createContainer()
+{
+    ServiceContainer<MockService>::Allocator alloc;
+    ServiceContainer<MockService> *retVal = alloc.allocateAndConstruct(1);
+
+    return retVal;
+}
+
+/**
+ * @brief test has method on servoce locator (SL does not have)
+ */
+void testHasService1()
+{
+    ServiceLocator locator;
+
+    assertFalse(locator.hasService(1));
+}
+
+/**
+ * @brief test has method on servoce locator (SL does have)
+ */
+void testHasService2()
+{
+    ServiceLocator locator;
+    ServiceContainer<MockService> *container = createContainer();
+    locator.registerService(1, container);
+
+    assertTrue(locator.hasService(1));
+}
+
+/**
+ * @brief test has method on servoce locator with parent (SL neither parent does not have)
+ */
+void testHasService3()
+{
+    ServiceLocator parent;
+    ServiceLocator locator(&parent);
+
+    assertFalse(locator.hasService(1));
+}
+
+/**
+ * @brief test has method on servoce locator (parent does have)
+ */
+void testHasService4()
+{
+    ServiceLocator parent;
+    ServiceLocator locator(&parent);
+    ServiceContainer<MockService> *container = createContainer();
+    parent.registerService(1, container);
+
+    assertTrue(locator.hasService(1));
 }
 
 GTFO_ENDCASE
